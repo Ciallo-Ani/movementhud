@@ -4,7 +4,7 @@
 #include <sourcemod>
 #include <clientprefs>
 
-#include <json>
+#include <json_mhud>
 #include <base64>
 
 #pragma semicolon 1
