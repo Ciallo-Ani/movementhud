@@ -37,7 +37,7 @@
 #define _json_helpers_decode_included
 
 #include <string>
-#include <json/helpers/string>
+#include <json_mhud/helpers/string>
 
 /**
  * @section Determine Buffer Contents

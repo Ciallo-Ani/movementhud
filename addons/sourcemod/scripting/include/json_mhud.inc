@@ -37,11 +37,11 @@
 #define _json_included
 
 #include <string>
-#include <json/definitions>
-#include <json/helpers/decode>
-#include <json/helpers/string>
-#include <json/object>
-#include <json/array>
+#include <json_mhud/definitions>
+#include <json_mhud/helpers/decode>
+#include <json_mhud/helpers/string>
+#include <json_mhud/object>
+#include <json_mhud/array>
 
 
 /**

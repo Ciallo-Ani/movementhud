@@ -37,7 +37,7 @@
 #define _metastringmap_included
 
 #include <string>
-#include <json/helpers/typedstringmap>
+#include <json_mhud/helpers/typedstringmap>
 
 /**
  * A TypedStringMap which contains a nested `Data` `TypedStringMap` property.

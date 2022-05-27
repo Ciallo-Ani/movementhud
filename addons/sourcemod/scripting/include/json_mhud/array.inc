@@ -37,8 +37,8 @@
 #define _json_array_included
 
 #include <string>
-#include <json/definitions>
-#include <json/object>
+#include <json_mhud/definitions>
+#include <json_mhud/object>
 
 methodmap JSON_Array < JSON_Object
 {

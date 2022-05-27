@@ -36,7 +36,7 @@
 #endif
 #define _json_helpers_string_included
 
-#include <json/helpers/unicode>
+#include <json_mhud/helpers/unicode>
 
 /**
  * Mapping characters to their escaped form.

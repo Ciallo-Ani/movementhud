@@ -37,7 +37,7 @@
 #define _json_definitions_included
 
 #include <string>
-#include <json/helpers/string>
+#include <json_mhud/helpers/string>
 
 #define SM_INT64_SUPPORTED SOURCEMOD_V_MAJOR >= 1 \
     && SOURCEMOD_V_MINOR >= 11 \

@@ -37,8 +37,8 @@
 #define _json_object_included
 
 #include <string>
-#include <json/definitions>
-#include <json/helpers/metastringmap>
+#include <json_mhud/definitions>
+#include <json_mhud/helpers/metastringmap>
 
 methodmap JSON_Object < MetaStringMap
 {
