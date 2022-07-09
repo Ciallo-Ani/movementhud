@@ -45,6 +45,8 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
     OnAskPluginLoad2_Natives();
     OnAskPluginLoad2_Forwards();
+
+    return APLRes_Success;
 }
 
 public void OnPluginStart()
