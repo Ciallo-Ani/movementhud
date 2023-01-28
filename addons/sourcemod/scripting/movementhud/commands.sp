@@ -65,11 +65,11 @@ public Action Command_MHud_Import(int client, int args)
     bool loaded = LoadFromPreferencesCode(client, code);
     if (!loaded)
     {
-        MHud_PrintToChat(client, "Failed to load from code");
+        MHud_PrintToChat(client, "配置导入失败!");
         return Plugin_Handled;
     }
 
-    MHud_PrintToChat(client, "Successfully imported preferences");
+    MHud_PrintToChat(client, "配置导入成功!");
     return Plugin_Handled;
 }
 

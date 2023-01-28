@@ -6,6 +6,7 @@ bool gB_DidJump[MAXPLAYERS + 1];
 bool gB_DidPerf[MAXPLAYERS + 1];
 bool gB_DidJumpBug[MAXPLAYERS + 1];
 bool gB_DidCrouchJump[MAXPLAYERS + 1];
+bool gB_DidFromLadder[MAXPLAYERS + 1];
 
 bool gB_DidTakeoff[MAXPLAYERS + 1];
 float gF_TakeoffSpeed[MAXPLAYERS + 1];
@@ -83,13 +84,13 @@ static void TrackMovement(int client)
         if (moveType != OldMoveType[client]
             && OldMoveType[client] == MOVETYPE_LADDER)
         {
-            DoTakeoff(client, false);
+            DoTakeoff(client, false, true);
         }
 
         // Jumped or fell off a ledge, probably.
         if (OldOnGround[client] && moveType != MOVETYPE_LADDER)
         {
-            DoTakeoff(client, gB_DidJump[client]);
+            DoTakeoff(client, gB_DidJump[client], false);
         }
 
         gI_GroundTicks[client] = 0;
@@ -136,7 +137,7 @@ static void ResetTakeoff(int client)
     gB_DidCrouchJump[client] = false;
 }
 
-static void DoTakeoff(int client, bool didJump)
+static void DoTakeoff(int client, bool didJump, bool fromLadder)
 {
     bool didPerf = gI_GroundTicks[client] == 1;
     float takeoffSpeed = gF_CurrentSpeed[client];
@@ -147,8 +148,19 @@ static void DoTakeoff(int client, bool didJump)
     gB_DidTakeoff[client] = true;
     gF_TakeoffSpeed[client] = takeoffSpeed;
 
+    if(IsFakeClient(client))
+    {
+        HUDInfo info;
+        GOKZ_RP_GetPlaybackInfo(client, info);
+        gB_DidPerf[client] = info.HitPerf;
+        gB_DidJump[client] = info.Jumped;
+        gF_TakeoffSpeed[client] = info.Speed;
+    }
+
     if (didJump)
     {
         gB_DidCrouchJump[client] = IsDucking(client);
     }
+
+    gB_DidFromLadder[client] = fromLadder;
 }

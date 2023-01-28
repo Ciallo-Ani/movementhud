@@ -13,12 +13,12 @@ void OnPluginStart_Element_Indicators()
 {
     HudSync = CreateHudSynchronizer();
 
-    IndicatorsColor = new MHudRGBPreference("indicators_color", "Indicators - Color", 0, 255, 0);
-    IndicatorsPosition = new MHudXYPreference("indicators_position", "Indicators - Position", 550, 725);
-    IndicatorsJBEnabled = new MHudBoolPreference("indicators_jb_enabled", "Indicators - Jump Bug", false);
-    IndicatorsCJEnabled = new MHudBoolPreference("indicators_cj_enabled", "Indicators - Crouch Jump", false);
-    IndicatorsPBEnabled = new MHudBoolPreference("indicators_pb_enabled", "Indicators - Perfect Bhop", false);
-    IndicatorsAbbreviations = new MHudBoolPreference("indicators_abbrs", "Indicators - Abbreviations", true);
+    IndicatorsColor = new MHudRGBPreference("indicators_color", "指示器 - 颜色", 0, 255, 0);
+    IndicatorsPosition = new MHudXYPreference("indicators_position", "指示器 - 位置", 550, 725);
+    IndicatorsJBEnabled = new MHudBoolPreference("indicators_jb_enabled", "指示器 - JB", false);
+    IndicatorsCJEnabled = new MHudBoolPreference("indicators_cj_enabled", "指示器 - 蹲跳", false);
+    IndicatorsPBEnabled = new MHudBoolPreference("indicators_pb_enabled", "指示器 - Perf", false);
+    IndicatorsAbbreviations = new MHudBoolPreference("indicators_abbrs", "指示器 - 启用缩写", true);
 }
 
 void OnPlayerRunCmdPost_Element_Indicators(int client, int target)
@@ -49,7 +49,7 @@ void OnPlayerRunCmdPost_Element_Indicators(int client, int target)
     {
         Format(buffer, sizeof(buffer), "%s%s\n",
             buffer,
-            useAbbr ? "JB" : "JUMPBUG"
+            useAbbr ? "JB" : "Jumpbug"
         );
     }
 

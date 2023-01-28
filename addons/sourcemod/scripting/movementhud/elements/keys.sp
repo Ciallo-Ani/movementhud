@@ -18,12 +18,12 @@ void OnPluginStart_Element_Keys()
 {
     HudSync = CreateHudSynchronizer();
 
-    KeysMode = new MHudEnumPreference("keys_mode", "Keys - Mode", Modes, sizeof(Modes) - 1, KeysMode_None);
-    KeysPosition = new MHudXYPreference("keys_position", "Keys - Position", -1, 800);
-    KeysNormalColor = new MHudRGBPreference("keys_color_normal", "Keys - Normal Color", 255, 255, 255);
-    KeysOverlapColor = new MHudRGBPreference("keys_color_overlap", "Keys - Overlap Color", 255, 0, 0);
-    KeysMouseDirection = new MHudBoolPreference("keys_mouse_direction", "Keys - Mouse Direction", false);
-    KeysColorBySpeed = new MHudBoolPreference("keys_color_from_speed", "Keys - Color by Speed", false);
+    KeysMode = new MHudEnumPreference("keys_mode", "按键 - 显示格式", Modes, sizeof(Modes) - 1, KeysMode_None);
+    KeysPosition = new MHudXYPreference("keys_position", "按键 - 显示位置", -1, 800);
+    KeysNormalColor = new MHudRGBPreference("keys_color_normal", "按键 - 颜色 - 正常", 255, 255, 255);
+    KeysOverlapColor = new MHudRGBPreference("keys_color_overlap", "按键 - 颜色 - 冲突", 255, 0, 0);
+    KeysColorBySpeed = new MHudBoolPreference("keys_color_from_speed", "按键 - 颜色 - 由速度决定", false);
+    KeysMouseDirection = new MHudBoolPreference("keys_mouse_direction", "按键 - 显示鼠标移动", false);
 }
 
 void OnPlayerRunCmdPost_Element_Keys(int client, int target)
@@ -57,7 +57,7 @@ void OnPlayerRunCmdPost_Element_Keys(int client, int target)
     }
 
     char blank[2];
-    strcopy(blank, sizeof(blank), (mode == KeysMode_NoBlanks) ? "  " : "—");
+    blank = (mode == KeysMode_NoBlanks) ? "  " : "—";
 
     Call_OnDrawKeys(client, xy, rgb);
     SetHudTextParams(xy[0], xy[1], 0.5, rgb[0], rgb[1], rgb[2], 255, _, _, 0.0, 0.0);

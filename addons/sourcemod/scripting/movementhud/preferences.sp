@@ -202,7 +202,7 @@ void PrintChangeMessage(int client, Preference preference)
     char display[128];
     Call_DisplayHandler(client, preference, display, sizeof(display));
 
-    MHud_PrintToChat(client, "\x05%s\x01 has been set to: \x03%s\x01 (\x0C%s\x01)", preference.Name, value, display);
+    MHud_PrintToChat(client, "\x05%s\x01 -> \x03%s\x01 (\x0C%s\x01)", preference.Name, value, display);
 }
 
 bool Call_InputHandler(int client, Preference preference, char[] input, char buffer[MHUD_MAX_VALUE])

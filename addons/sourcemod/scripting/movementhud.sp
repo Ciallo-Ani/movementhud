@@ -13,6 +13,9 @@
 bool gB_IsReady;
 
 #include <movementhud>
+#include <gokz/hud>
+#include <gokz/replays>
+#include <gokz/kzplayer>
 
 #include "movementhud/utils.sp"
 #include "movementhud/movement.sp"
@@ -32,7 +35,7 @@ bool gB_IsReady;
 
 public Plugin myinfo =
 {
-    name = "MovementHUD",
+    name = "MovementHUD 魔改汉化",
     author = "Sikari",
     description = "Provides customizable displays for movement",
     version = MHUD_VERSION,
@@ -45,8 +48,6 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
     OnAskPluginLoad2_Natives();
     OnAskPluginLoad2_Forwards();
-
-    return APLRes_Success;
 }
 
 public void OnPluginStart()

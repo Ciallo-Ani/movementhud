@@ -25,9 +25,9 @@ void WaitForPreferenceChatInputFromClient(int client, char preferenceId[MHUD_MAX
 	char format[64];
 	GetPreferenceFormat(false, preference, format, sizeof(format));
 
-	MHud_PrintToChat(client, "Enter a \x03value\x01 for \x05%s\x01 in the chat", preference.Name);
-	MHud_PrintToChat(client, "Value format: %s", format);
-	MHud_PrintToChat(client, "Available custom inputs: \x03cancel\x01, \x03reset\x01");
+	MHud_PrintToChat(client, "请通过聊天栏设置 \x05%s\x01", preference.Name);
+	MHud_PrintToChat(client, "输入格式: %s", format);
+	MHud_PrintToChat(client, "其他输入: \x03cancel\x01, \x03reset\x01");
 }
 
 static Handle CreateTimeoutTimer(int client)
@@ -43,11 +43,9 @@ public Action Timer_InputTimeout(Handle timer, int userid)
 	int client = GetClientOfUserId(userid);
 	if (client > 0 && IsClientConnected(client))
 	{
-		MHud_PrintToChat(client, "\x07Input timed out!\x01");
+		MHud_PrintToChat(client, "\x07输入超时!\x01");
 		ResetWaitForPreferenceChatInputFromClient(client, true);
 	}
-
-	return Plugin_Continue;
 }
 
 public Action OnClientSayCommand(int client, const char[] command, const char[] sArgs)
@@ -83,7 +81,7 @@ public Action OnClientSayCommand(int client, const char[] command, const char[] 
 
 static void HandleCancelInput(int client)
 {
-	MHud_PrintToChat(client, "\x07Cancelled input!\x01");
+	MHud_PrintToChat(client, "\x07取消输入!\x01");
 }
 
 static void HandleResetInput(int client, char preferenceId[MHUD_MAX_ID])

@@ -12,8 +12,8 @@ void DisplayMainMenu(int client)
     Menu menu = new Menu(MenuHandler_Main);
     menu.SetTitle("MovementHUD %.20s\n%s\n ", MHUD_VERSION, MHUD_SOURCE_URL);
 
-    menu.AddItem("1", "Simple preferences");
-    menu.AddItem("2", "Advanced preferences");
+    menu.AddItem("1", "简易设置");
+    menu.AddItem("2", "进阶设置");
     //menu.AddItem("3", "Preferences helpers & tools");
 
     menu.ExitButton = true;
@@ -87,8 +87,6 @@ public int MenuHandler_Main(Menu menu, MenuAction action, int param1, int param2
     {
         delete menu;
     }
-
-    return 0;
 }
 
 public int MenuHandler_Preferences(Menu menu, MenuAction action, int param1, int param2)
@@ -103,13 +101,13 @@ public int MenuHandler_Preferences(Menu menu, MenuAction action, int param1, int
         bool found = GetPreferenceById(id, preference);
         if (!found)
         {
-            return 0;
+            return;
         }
 
         if (gB_InAdvMode[param1])
         {
             WaitForPreferenceChatInputFromClient(param1, id, menu.Selection);
-            return 0;
+            return;
         }
 
         char value[MHUD_MAX_VALUE];
@@ -130,6 +128,4 @@ public int MenuHandler_Preferences(Menu menu, MenuAction action, int param1, int
     {
         delete menu;
     }
-
-    return 0;
 }
