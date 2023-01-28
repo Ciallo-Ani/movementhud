@@ -67,6 +67,8 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 {
     RegPluginLibrary("MovementHUD");
 
+    MarkNativeAsOptional("GOKZ_RP_GetPlaybackInfo");
+
     OnAskPluginLoad2_Natives();
     OnAskPluginLoad2_Forwards();
 
