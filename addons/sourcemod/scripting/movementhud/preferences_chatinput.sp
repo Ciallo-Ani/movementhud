@@ -46,6 +46,8 @@ public Action Timer_InputTimeout(Handle timer, int userid)
 		MHud_PrintToChat(client, "\x07输入超时!\x01");
 		ResetWaitForPreferenceChatInputFromClient(client, true);
 	}
+
+	return Plugin_Continue;
 }
 
 public Action OnClientSayCommand(int client, const char[] command, const char[] sArgs)

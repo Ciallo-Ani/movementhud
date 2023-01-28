@@ -13,9 +13,30 @@
 bool gB_IsReady;
 
 #include <movementhud>
-#include <gokz/hud>
-#include <gokz/replays>
-#include <gokz/kzplayer>
+
+enum struct HUDInfo
+{
+	bool TimerRunning;
+	int TimeType;
+	float Time;
+	bool Paused;
+	bool OnGround;
+	bool OnLadder;
+	bool Noclipping;
+	bool Ducking;
+	bool HitBhop;
+	bool IsTakeoff;
+	float Speed;
+	int ID;
+	bool Jumped;
+	bool HitPerf;
+	bool HitJB;
+	float TakeoffSpeed;
+	int Buttons;
+	int CurrentTeleport;
+}
+
+native int GOKZ_RP_GetPlaybackInfo(int client, any[] info);
 
 #include "movementhud/utils.sp"
 #include "movementhud/movement.sp"
@@ -36,7 +57,7 @@ bool gB_IsReady;
 public Plugin myinfo =
 {
     name = "MovementHUD 魔改汉化",
-    author = "Sikari",
+    author = "Sikari, Nep",
     description = "Provides customizable displays for movement",
     version = MHUD_VERSION,
     url = MHUD_SOURCE_URL
@@ -48,6 +69,8 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
     OnAskPluginLoad2_Natives();
     OnAskPluginLoad2_Forwards();
+
+    return APLRes_Success;
 }
 
 public void OnPluginStart()

@@ -57,7 +57,7 @@ void OnPlayerRunCmdPost_Element_Keys(int client, int target)
     }
 
     char blank[2];
-    blank = (mode == KeysMode_NoBlanks) ? "  " : "—";
+    strcopy(blank, sizeof(blank), (mode == KeysMode_NoBlanks) ? "  " : "_");
 
     Call_OnDrawKeys(client, xy, rgb);
     SetHudTextParams(xy[0], xy[1], 0.5, rgb[0], rgb[1], rgb[2], 255, _, _, 0.0, 0.0);
